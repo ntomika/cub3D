@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /Users/dasharazumova/Desktop/school21/project/cub3D Select CMakeLists.txt
