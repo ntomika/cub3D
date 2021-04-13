@@ -6,7 +6,7 @@
 /*   By: ntomika <ntomika@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 23:00:43 by ntomika           #+#    #+#             */
-/*   Updated: 2021/04/13 23:44:28 by ntomika          ###   ########.fr       */
+/*   Updated: 2021/04/14 00:00:25 by ntomika          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	loop_vertical_stripe(t_all *all, int y, int d, int color)
 	int	stripe;
 
 	stripe = all->spr.drawStartX;
-	while (stripe++ < all->spr.drawEndX)
+	while (stripe++ < all->spr.drawEndX - 1)
 	{
 		all->spr.texspriteX = (int )((256 * (stripe - (-all->spr.spriteWidth / 2
 							+ all->spr.spriteScreenX))
@@ -61,7 +61,7 @@ void	loop_vertical_stripe(t_all *all, int y, int d, int color)
 			&& all->spr.transformY < all->gr.zBuffer[stripe])
 		{
 			y = all->spr.drawStartY;
-			while (y++ < all->spr.drawEndY)
+			while (y++ < all->spr.drawEndY - 1)
 			{
 				d = (y - all->spr.vMoveScreen) * 256 - all->key.h
 					* 128 + all->spr.spriteHeight * 128;

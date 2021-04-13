@@ -75,6 +75,9 @@ void	get_sprite(t_all *all)
 	int	d;
 	int	color;
 
+	color = 0;
+	d = 0;
+	y = 0;
 	init_sprite(all);
 	i = -1;
 	while (++i < all->key.numSprites)
