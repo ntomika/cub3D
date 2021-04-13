@@ -1,10 +1,12 @@
 #include "header.h"
 
-int		check_S(t_all *all)
+int	check_S(t_all *all)
 {
-	int	i = -1;
-	int	s = 0;
+	int	i;
+	int	s;
 
+	i = -1;
+	s = 0;
 	while (++i < all->size - all->sizemap)
 	{
 		if (all->conf[i][0] == 'S' && all->conf[i][1] == ' ')
@@ -19,11 +21,13 @@ int		check_S(t_all *all)
 	return (1);
 }
 
-int		check_NO(t_all *all)
+int	check_NO(t_all *all)
 {
-	int i = -1;
-	int no = 0;
+	int	i;
+	int	no;
 
+	i = -1;
+	no = 0;
 	while (++i < all->size - all->sizemap)
 	{
 		if (all->conf[i][0] == 'N' && all->conf[i][1] == 'O')
@@ -38,11 +42,13 @@ int		check_NO(t_all *all)
 	return (1);
 }
 
-int		check_SO(t_all *all)
+int	check_SO(t_all *all)
 {
-	int	i = -1;
-	int	so = 0;
+	int	i;
+	int	so;
 
+	i = -1;
+	so = 0;
 	while (++i < all->size - all->sizemap)
 	{
 		if (all->conf[i][0] == 'S' && all->conf[i][1] == 'O')
@@ -57,11 +63,13 @@ int		check_SO(t_all *all)
 	return (1);
 }
 
-int		check_WE(t_all *all)
+int	check_WE(t_all *all)
 {
-	int	i = -1;
-	int	we = 0;
+	int	i;
+	int	we;
 
+	i = -1;
+	we = 0;
 	while (++i < all->size - all->sizemap)
 	{
 		if (all->conf[i][0] == 'W' && all->conf[i][1] == 'E')
@@ -76,11 +84,13 @@ int		check_WE(t_all *all)
 	return (1);
 }
 
-int		check_EA(t_all *all)
+int	check_EA(t_all *all)
 {
-	int	i = -1;
-	int	ea = 0;
+	int	i;
+	int	ea;
 
+	i = -1;
+	ea = 0;
 	while (++i < all->size - all->sizemap)
 	{
 		if (all->conf[i][0] == 'E' && all->conf[i][1] == 'A')

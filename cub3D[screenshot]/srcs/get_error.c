@@ -2,5 +2,7 @@
 
 void	get_error(char *message)
 {
-	printf("ERROR : %s.\n", message);
+	printf("\033[31m");
+	printf("ERROR\n%s.\n", message);
+	printf("\033[0m");
 }

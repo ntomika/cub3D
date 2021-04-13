@@ -7,7 +7,7 @@ MLX			= -framework OpenGL -framework AppKit
 
 LIB			= ./mlx/libmlx.a ./libft/libft.a
 
-SRCS		= srcs/readmap.c \
+SRCS		= srcs/read_configs.c \
 				srcs/search.c \
 				srcs/check_player.c \
 				srcs/get_error.c \
@@ -20,7 +20,7 @@ SRCS		= srcs/readmap.c \
 				srcs/textures_keys.c \
 				srcs/check_map.c \
 				srcs/3d_img.c \
-				srcs/3d_img_2.c \
+				srcs/initbuf_textures.c \
 				srcs/key_press.c \
 				srcs/func_mlx.c \
 				srcs/get_screen.c \

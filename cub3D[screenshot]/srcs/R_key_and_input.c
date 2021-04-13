@@ -1,6 +1,6 @@
 #include "header.h"
 
-int 	w_and_h(t_all *all, int *i, char *s)
+int	w_and_h(t_all *all, int *i, char *s)
 {
 	while (s[*i] >= '0' && s[*i] <= '9')
 	{
@@ -21,9 +21,11 @@ int 	w_and_h(t_all *all, int *i, char *s)
 
 void	check_wh(t_all *all)
 {
-	int width = 0;
-	int height = 0;
+	int	width;
+	int	height;
 
+	width = 0;
+	height = 0;
 	mlx_get_screen_size(&all, &width, &height);
 	if (all->key.w > width)
 		all->key.w = width;
@@ -31,32 +33,25 @@ void	check_wh(t_all *all)
 		all->key.h = height;
 }
 
-int 	open_r_key(char *s, t_all *all)
+int	open_r_key(char *s, t_all *all)
 {
-	int i = 1;
+	int	i;
 
+	i = 1;
 	while (s[i] == ' ')
 		i++;
 	if (s[i] >= '0' && s[i] <= '9')
 	{
 		if (!(w_and_h(all, &i, s)))
-		{
-			get_error("Invalid identifier \"R\"");
 			return (0);
-		}
 	}
 	else
-	{
-		get_error("Invalid identifier \"R\"");
 		return (0);
-	}
 	check_wh(all);
-	printf("key.h = %d\n", all->key.h);
-	printf("key.w = %d\n", all->key.w);
 	return (1);
 }
 
-int		check_input_val(t_all *all)
+int	check_input_val(t_all *all)
 {
 	if (all->color.red > 255 || all->color.red < 0)
 		return (0);
@@ -67,7 +62,7 @@ int		check_input_val(t_all *all)
 	return (1);
 }
 
-void 	init_RGB(t_all *all)
+void	init_RGB(t_all *all)
 {
 	all->color.red = 0;
 	all->color.green = 0;

@@ -1,15 +1,30 @@
 #include "header.h"
-void get_free_conf(t_all *all)
+void	get_free_conf(t_all *all)
 {
-	while (all->size >= 0)
-		free((void *)all->conf[--all->size]);
+	int	c;
+
+	c = all->size;
+	while (c-- >= 0)
+		free(all->conf[c]);
 	free(all->conf);
 }
-void get_free_map(t_all *all)
+
+void	get_free_map(t_all *all)
 {
-	while (all->sizemap >= 0)
-		free((void *)all->map[--all->sizemap]);
+	int	c;
+
+	c = all->sizemap;
+	while (c-- >= 0)
+		free(all->map[c]);
 	free(all->map);
-	//	get_error("Incomplete set of identifier settings");
-	return;
+}
+
+void	get_free_bufer(t_all *all)
+{
+	int	h;
+
+	h = all->key.h;
+	while (h-- >= 0)
+		free(all->gr.bufer[h]);
+	free(all->gr.bufer);
 }

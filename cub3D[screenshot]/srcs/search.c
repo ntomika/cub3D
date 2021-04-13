@@ -6,7 +6,7 @@
 /*   By: ntomika <ntomika@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:06:31 by ntomika           #+#    #+#             */
-/*   Updated: 2021/04/09 17:16:35 by ntomika          ###   ########.fr       */
+/*   Updated: 2021/04/13 17:37:02 by ntomika          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	write_coordinates(t_all *all)
 		{
 			if (all->map[i][j] == '2')
 			{
-				all->spr.poz_sprite_x[x] = (float)i;
-				all->spr.poz_sprite_y[y] = (float)j;
+				all->spr.poz_sprite_x[x] = (float)i + 0.5;
+				all->spr.poz_sprite_y[y] = (float)j + 0.5;
 				x++;
 				y++;
 			}
@@ -54,8 +54,8 @@ int	init_char_sprt(t_all *all)
 		get_error("Failed to allocate memory");
 		return (0);
 	}
-	all->spr.poz_sprite_x[all->key.numSprites] = '\0';
-	all->spr.poz_sprite_y[all->key.numSprites] = '\0';
+	all->spr.poz_sprite_x[all->key.numSprites - 1] = '\0';
+	all->spr.poz_sprite_y[all->key.numSprites -1] = '\0';
 	return (1);
 }
 
@@ -84,8 +84,8 @@ void	search_plr(t_all *all, int *flag, int *i, int *j)
 {
 	if (ft_strchr("NSWE", all->map[*i][*j]))
 	{
-		all->gr.posX = *i;
-		all->gr.posY = *j;
+		all->gr.posX = *i + 0.5;
+		all->gr.posY = *j + 0.5;
 		all->plr.poz = all->map[*i][*j];
 		check_player(all);
 		*flag += 1;

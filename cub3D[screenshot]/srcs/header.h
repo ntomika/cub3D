@@ -1,31 +1,29 @@
 #ifndef HEADER_H
-#define HEADER_H
+# define HEADER_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-// #include <mlx.h>
-#include <math.h>
-//#include "minilibx_opengl_20191021/mlx.h"
-#include "../mlx/mlx.h"
-#include "../gnl/get_next_line.h"
-#include "../libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <math.h>
+# include "../mlx/mlx.h"
+# include "../gnl/get_next_line.h"
+# include "../libft/libft.h"
 
-#define SCALE 1
+# define SCALE 1
 
-#define TEXTUREH 64
-#define TEXTUREW 64
+# define TEXTUREH 64
+# define TEXTUREW 64
 
-#define moveS 0.07
-#define rotS 0.05
+# define MS 0.07
+# define RS 0.05
 
-#define uDiv 1
-#define vDiv 1
-#define vMove 0.0
+# define UDiv 1
+# define VDiv 1
+# define VMove 0.0
 
-#define FILE_HEADER_SIZE 14
-#define INFO_HEADER_SIZE 40
+# define FILE_HEADER_SIZE 14
+# define INFO_HEADER_SIZE 40
 
 typedef struct	s_keycap
 {
@@ -94,18 +92,6 @@ typedef struct	s_3d
 
 }				t_3d;
 
-typedef struct 		s_textures
-{
-	float 			start;
-	float 			end;
-	float			dir;
-	float			x;
-	float			y;
-	float			LenRay;
-	float			Wall;
-}					t_textures;
-
-
 typedef struct		s_key
 {
 	int				h;
@@ -151,24 +137,15 @@ typedef	struct s_spr
 	float		*poz_sprite_y;
 }				t_spr;
 
-typedef struct		s_screen
-{
-	int				fd;
-	int				file_size;
-}					t_screen;
-
-
 typedef struct 		s_all
 {
 	t_player 		plr;
 	t_data 			img;
 	t_3d			gr;
-	t_textures		textures;
 	t_key			key;
 	t_color			color;
 	t_spr			spr;
 	t_keycap		keycap;
-	t_screen		scrn;
 	int				sizemap;
 	int 			size;
 	char 			**map;
@@ -183,76 +160,76 @@ void	poz_s(t_all *all);
 void	poz_w(t_all *all);
 void	poz_e(t_all *all);
 
-int		plr_bihavior(t_all *all);
+int	plr_bihavior(t_all *all);
 void	search_plr(t_all *all, int *flag, int *i, int *j);
-int		search_sprites(t_all *all);
-int		init_char_sprt(t_all *all);
+int	search_sprites(t_all *all);
+int	init_char_sprt(t_all *all);
 void	write_coordinates(t_all *all);
 
 void	my_mlx_pixel_put(t_all *all, int x, int y, long long color);
-int		quit(t_all *all);
+int	quit(t_all *all);
 
-int		check_valid(t_all *all);
+int	check_valid(t_all *all);
 void	identef_key(t_all *all);
+int	keys(t_all *all);
 
-int		valid_map(t_all *all);
-int		valid_start_end(int *i, int *j, t_all *all);
-int 	check_map(t_all *all, int *i);
-int		map_angle(int *i, int *j, t_all *all);
+int	valid_map(t_all *all);
+int	valid_start_end(t_all *all, int *i, int *j);
+int check_map(t_all *all, int *i);
+int	map_angle(int i, int j, t_all *all);
 
-int		check_R(t_all *all);
-int		check_F(t_all *all);
-int		check_C(t_all *all);
+int	check_R(t_all *all);
+int	check_F(t_all *all);
+int	check_C(t_all *all);
 
-int		check_NO(t_all *all);
-int		check_SO(t_all *all);
-int		check_WE(t_all *all);
-int		check_EA(t_all *all);
-int		check_S(t_all *all);
+int	check_NO(t_all *all);
+int	check_SO(t_all *all);
+int	check_WE(t_all *all);
+int	check_EA(t_all *all);
+int	check_S(t_all *all);
 
 void	get_free_map(t_all *all);
 void	get_free_conf(t_all *all);
+void	get_free_bufer(t_all *all);
 
-int 	open_r_key(char *s, t_all *all);
-int		w_and_h(t_all *all, int *i, char *s);
+int	open_r_key(char *s, t_all *all);
+int	w_and_h(t_all *all, int *i, char *s);
 void	check_wh(t_all *all);
-int		check_input_val(t_all *all);
-void 	init_RGB(t_all *all);
+int	check_input_val(t_all *all);
+void	init_RGB(t_all *all);
 
-int 	open_f_key(char *s, t_all *all);
-int		open_c_key(char *s, t_all *all);
-int 	color_conversion(char *c, int *clr);
-int		create_trgb(int t, int r, int g, int b);
-int		valid_color(t_all *all, int *i, char *s);
+int	open_f_key(char *s, t_all *all);
+int	open_c_key(char *s, t_all *all);
+int	color_conversion(char *c, int *clr);
+int	create_trgb(int t, int r, int g, int b);
+int	valid_color(t_all *all, int *i, char *s);
 
-int		open_NO(char *s, t_all *all);
-int		open_SO(char *s, t_all *all);
-int		open_WE(char *s, t_all *all);
-int		open_EA(char *s, t_all *all);
-int		open_S(char *s, t_all *all);
+int	open_NO(char *s, t_all *all);
+int	open_SO(char *s, t_all *all);
+int	open_WE(char *s, t_all *all);
+int	open_EA(char *s, t_all *all);
+int	open_S(char *s, t_all *all);
 
 void	get_error(char *message);
 
-int		counting(t_all *all);
+int	counting(t_all *all);
 void	img_3d(t_all *all);
 void	print(t_all *all);
 
-void	init_buf(t_all *all);
+int	init_buf(t_all *all);
+int	init_bufer(t_all *all);
 void	load_textures(t_all *all);
-int		load_image(t_all *all, int *texture, char *path);
+int	load_image(t_all *all, int *texture, char *path);
 
 void	key_update(t_all *all);
 void	left_right(t_all *all);
 void	key_a_and_d(t_all *all);
-int		key_press(int key, t_all *all);
-int		key_release(int key, t_all *all);
-
-void 	drow_map(t_all *all);
-int		print_square(t_all *all, int k, int l, unsigned int color);
+int	key_press(int key, t_all *all);
+int	key_release(int key, t_all *all);
 
 void	get_screen(t_all *all, char **argv);
-void	file_header(t_all *all);
-void	info_header(t_all *all);
-void	get_bmp(t_all *all);
+void	file_header(t_all *all, int fd);
+void	info_header(t_all *all, int fd);
+void	get_bmp(t_all *all, int fd);
 
 #endif

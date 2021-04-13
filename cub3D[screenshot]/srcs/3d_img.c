@@ -2,11 +2,14 @@
 
 void	print(t_all *all)
 {
-	int y = -1;
+	int y;
+	int x;
+
+	y = -1;
 	while (++y < all->key.h)
 	{
-		int x = -1;
-		while (++x <= all->key.w)
+		x = -1;
+		while (++x < all->key.w)
 			all->img.addr[y * all->key.w + x] = all->gr.bufer[y][x];
 	}
 	mlx_put_image_to_window(all->img.mlx, all->img.win, all->img.img, 0, 0);
@@ -202,9 +205,9 @@ void 	img_3d(t_all *all)
 		
 		all->spr.spriteScreenX = (int)((all->key.w / 2) * (1 + all->spr.transformX / all->spr.transformY));
 
-		int vMoveScreen = (int)(vMove / all->spr.transformY);
+		int vMoveScreen = (int)(VMove / all->spr.transformY);
 
-		all->spr.spriteHeight = (int)(fabs((all->key.h / all->spr.transformY)) / vDiv);
+		all->spr.spriteHeight = (int)(fabs((all->key.h / all->spr.transformY)) / VDiv);
 		int drawStartY = -all->spr.spriteHeight / 2 + all->key.h / 2 + vMoveScreen;
 		if(drawStartY < 0)
 			drawStartY = 0;
@@ -212,7 +215,7 @@ void 	img_3d(t_all *all)
 		if(drawEndY >= all->key.h)
 			drawEndY = all->key.h - 1;
 
-		all->spr.spriteWidth = (int)(fabs((all->key.h  / all->spr.transformY)) / uDiv);
+		all->spr.spriteWidth = (int)(fabs((all->key.h  / all->spr.transformY)) / UDiv);
 		int drawStartX = -all->spr.spriteWidth / 2 + all->spr.spriteScreenX;
 		if(drawStartX < 0)
 			drawStartX = 0;

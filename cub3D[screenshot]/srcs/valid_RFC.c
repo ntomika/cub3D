@@ -1,10 +1,12 @@
 #include "header.h"
 
-int check_R(t_all *all)
+int	check_R(t_all *all)
 {
-	int i = -1;
-	int r = 0;
+	int	i;
+	int	r;
 
+	i = -1;
+	r = 0;
 	while (++i < all->size - all->sizemap)
 	{
 		if (all->conf[i][0] == 'R' && all->conf[i][1] == ' ')
@@ -19,11 +21,13 @@ int check_R(t_all *all)
 	return (1);
 }
 
-int check_F(t_all *all)
+int	check_F(t_all *all)
 {
-	int i = -1;
-	int f = 0;
+	int	i;
+	int	f;
 
+	i = -1;
+	f = 0;
 	while (++i < all->size - all->sizemap)
 	{
 		if (all->conf[i][0] == 'F' && all->conf[i][1] == ' ')
@@ -38,11 +42,13 @@ int check_F(t_all *all)
 	return (1);
 }
 
-int check_C(t_all *all)
+int	check_C(t_all *all)
 {
-	int i = -1;
-	int c = 0;
+	int	i;
+	int	c;
 
+	i = -1;
+	c = 0;
 	while (++i < all->size - all->sizemap)
 	{
 		if (all->conf[i][0] == 'C' && all->conf[i][1] == ' ')
