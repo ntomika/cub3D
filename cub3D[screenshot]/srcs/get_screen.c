@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_screen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntomika <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ntomika <ntomika@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 16:44:57 by ntomika           #+#    #+#             */
-/*   Updated: 2021/04/11 14:24:05 by ntomika          ###   ########.fr       */
+/*   Updated: 2021/04/13 20:58:26 by ntomika          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	get_bmp(t_all *all, int fd)
 void	get_screen(t_all *all, char **argv)
 {
 	int	fd;
-	
+
 	if (!(ft_memcmp("--save", argv[2], ft_strlen(argv[2]))))
 	{	
 		general(all);

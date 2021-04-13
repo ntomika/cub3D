@@ -24,6 +24,8 @@ SRCS		= srcs/read_configs.c \
 				srcs/key_press.c \
 				srcs/func_mlx.c \
 				srcs/get_screen.c \
+				srcs/sprites.c \
+				srcs/sprites_2.c \
 				gnl/get_next_line.c \
 				gnl/get_next_line_utils.c
 
