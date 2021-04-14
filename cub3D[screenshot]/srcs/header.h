@@ -244,7 +244,7 @@ void	loop_vertical_stripe(t_all *all, int y, int d, int color);
 int		init_buf(t_all *all);
 int		init_bufer(t_all *all);
 void	load_textures(t_all *all);
-int		load_image(t_all *all, int *texture, char *path);
+void	load_image(t_all *all, int *texture, char *path);
 
 void	key_update(t_all *all);
 void	left_right(t_all *all);

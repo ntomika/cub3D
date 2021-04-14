@@ -7,6 +7,8 @@ void	identef_key(t_all *all)
 	all->color.red = 0;
 	all->color.green = 0;
 	all->color.blue = 0;
+	all->key.w2 = 0;
+	all->key.h2 = 0;
 }
 
 int	keys(t_all *all)

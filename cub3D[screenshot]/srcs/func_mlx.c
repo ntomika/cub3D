@@ -16,6 +16,7 @@ int	quit(t_all *all)
 	free(all->map);
 	free(all->spr.poz_sprite_x);
 	free(all->spr.poz_sprite_y);
+	free(all->gr.zBuffer);
 	mlx_destroy_window(all->img.mlx, all->img.win);
 	exit(0);
 }

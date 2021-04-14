@@ -1,17 +1,19 @@
 #include "header.h"
 
-int	load_image(t_all *all, int *texture, char *path)
+void	load_image(t_all *all, int *texture, char *path)
 {
 	int	x;
 	int	y;
 
-	all->key.w2 = 0;
-	all->key.h2 = 0;
-	all->img.img = mlx_xpm_file_to_image(all->img.mlx, path,
-			&all->key.w2,
+	all->img.img = mlx_xpm_file_to_image(all->img.mlx, path, &all->key.w2,
 			&all->key.h2);
 	if (!all->img.img)
 		return (0);
+	if (all->key.w2 > 64 || all->key.h2 > 64)
+	{
+		get_error("Textures error");
+		quit(all);
+	}
 	all->img.addr = (int *)mlx_get_data_addr(all->img.img,
 			&all->img.bits_per_pixel,
 			&all->img.line_length,
@@ -25,7 +27,6 @@ int	load_image(t_all *all, int *texture, char *path)
 				= all->img.addr[all->key.w2 * y + x];
 	}
 	mlx_destroy_image(all->img.mlx, all->img.img);
-	return (1);
 }
 
 void	load_textures(t_all *all)
