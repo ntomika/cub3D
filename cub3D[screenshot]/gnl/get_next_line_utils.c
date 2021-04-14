@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntomika <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ntomika <ntomika@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 00:45:25 by ntomika           #+#    #+#             */
-/*   Updated: 2021/03/09 16:35:30 by dasharazumova    ###   ########.fr       */
+/*   Updated: 2021/04/14 19:47:11 by ntomika          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	*ft_new(size_t n)
 	size_t	i;
 
 	i = 0;
-	if (!(a = (char *)malloc(n + 1)))
+	a = (char *)malloc(n + 1);
+	if (!a)
 		return (NULL);
 	while (i < n)
 	{
@@ -31,7 +32,7 @@ char	*ft_new(size_t n)
 
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -67,17 +68,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		j;
 	char	*k;
 
-	i = 0;
 	j = 0;
 	l1 = ft_strlen(s1);
 	l2 = ft_strlen(s2);
-	if (!(k = (char *)malloc(sizeof(char) * (l1 + l2 + 1))))
+	k = (char *)malloc(sizeof(char) * (l1 + l2 + 1));
+	if (!k)
 		return (NULL);
-	while (i < l1)
-	{
+	i = -1;
+	while (++i < l1)
 		k[i] = s1[i];
-		i++;
-	}
 	while (j < l2)
 	{
 		k[i] = s2[j];
@@ -86,4 +85,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	k[i] = '\0';
 	return (k);
+}
+
+void	write_line(char **line, char *buf)
+{
+	char	*cpy;
+
+	cpy = NULL;
+	cpy = *line;
+	*line = ft_strjoin(*line, buf);
+	free(cpy);
 }

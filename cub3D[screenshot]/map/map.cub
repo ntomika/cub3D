@@ -1,8 +1,8 @@
 R     900 1000
-NO    ./img/greystone.xpm
-SO    ./img/wood.xpm
-WE    ./img/redbrick.xpm
-EA    ./img/colorstone.xpm
+NO    ./img/tex_NO.xpm
+SO    ./img/tex_SO.xpm
+WE    ./img/tex_WE.xpm
+EA    ./img/tex_EA.xpm
 S     ./img/barrel.xpm
 F     235,186,52
 C     181,244,247

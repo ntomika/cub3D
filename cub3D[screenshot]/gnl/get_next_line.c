@@ -3,16 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntomika <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ntomika <ntomika@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 20:26:12 by ntomika           #+#    #+#             */
-/*   Updated: 2021/03/09 16:35:30 by dasharazumova    ###   ########.fr       */
+/*   Updated: 2021/04/14 19:51:57 by ntomika          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char		*ft_check_bsn(const char *s, int c)
+void	free_ost(char **ost, char **vrem)
+{
+	free(*ost);
+	*ost = *vrem;
+}
+
+char	*ft_check_bsn(const char *s, int c)
 {
 	int		i;
 	char	*one_str;
@@ -35,7 +41,7 @@ char		*ft_check_bsn(const char *s, int c)
 	return (NULL);
 }
 
-char		*ft_check_ost(char **ost, char **line)
+char	*ft_check_ost(char **ost, char **line)
 {
 	char	*check_bsn;
 	char	*vrem;
@@ -44,13 +50,13 @@ char		*ft_check_ost(char **ost, char **line)
 	check_bsn = NULL;
 	if (*ost)
 	{
-		if ((check_bsn = ft_check_bsn(*ost, '\n')))
+		check_bsn = ft_check_bsn(*ost, '\n');
+		if (check_bsn)
 		{
 			*check_bsn = '\0';
 			*line = ft_strdup(*ost);
 			vrem = ft_strdup(++check_bsn);
-			free(*ost);
-			*ost = vrem;
+			free_ost(ost, &vrem);
 		}
 		else
 		{
@@ -64,7 +70,7 @@ char		*ft_check_ost(char **ost, char **line)
 	return (check_bsn);
 }
 
-int			ft_return(int fd, char **line, char *check_bsn, char **ost)
+int	ft_return(int fd, char **line, char *check_bsn, char **ost)
 {
 	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
 		return (-1);
@@ -73,31 +79,28 @@ int			ft_return(int fd, char **line, char *check_bsn, char **ost)
 	return (1);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*ost;
 	char		buf[BUFFER_SIZE + 1];
 	char		*check_bsn;
-	char		*cpy;
 	int			rd;
 
-	cpy = NULL;
 	check_bsn = ft_check_ost(&ost, line);
-	while (!check_bsn && (rd = read(fd, buf, BUFFER_SIZE)))
+	rd = 1;
+	while (!check_bsn && rd)
 	{
+		rd = read(fd, buf, BUFFER_SIZE);
 		if (rd < 0)
 			return (-1);
 		buf[rd] = '\0';
-		if ((check_bsn = ft_check_bsn(buf, '\n')))
+		check_bsn = ft_check_bsn(buf, '\n');
+		if (check_bsn)
 		{
 			*check_bsn = '\0';
-			cpy = ost;
 			ost = ft_strdup(++check_bsn);
-			free(cpy);
 		}
-		cpy = *line;
-		*line = ft_strjoin(*line, buf);
-		free(cpy);
+		write_line(line, buf);
 	}
 	return (ft_return(fd, line, check_bsn, &ost));
 }

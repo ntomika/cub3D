@@ -188,6 +188,7 @@ int		map_angle(int i, int j, t_all *all);
 int		check_R(t_all *all);
 int		check_F(t_all *all);
 int		check_C(t_all *all);
+int		overflow(long key);
 
 int		check_NO(t_all *all);
 int		check_SO(t_all *all);
@@ -203,7 +204,7 @@ int		open_r_key(char *s, t_all *all);
 int		w_and_h(t_all *all, int *i, char *s);
 void	check_wh(t_all *all);
 int		check_input_val(t_all *all);
-void	init_RGB(t_all *all);
+void	init_rgb(t_all *all);
 
 int		open_f_key(char *s, t_all *all);
 int		open_c_key(char *s, t_all *all);
@@ -219,9 +220,17 @@ int		open_S(char *s, t_all *all);
 
 void	get_error(char *message);
 
-int		counting(t_all *all);
 void	img_3d(t_all *all);
+void	screen_buf(t_all *all, int x);
+void	drow_ceiling(t_all *all, int x, int *y);
+void	drow_floor(t_all *all, int x, int *y);
 void	print(t_all *all);
+
+int		counting(t_all *all);
+void	step_and_side(t_all *all);
+void	dda(t_all *all);
+void	calc_wall(t_all *all);
+void	texture(t_all *all);
 
 void	sort_order(t_pair *orders, int amount);
 void	sortSprites(int *order, float *dist, int amount);

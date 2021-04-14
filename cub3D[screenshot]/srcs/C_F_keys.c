@@ -43,7 +43,7 @@ int	open_c_key(char *s, t_all *all)
 	int	i;
 
 	i = 0;
-	init_RGB(all);
+	init_rgb(all);
 	i++;
 	while (s[i] == ' ')
 		i++;
@@ -66,7 +66,7 @@ int	open_f_key(char *s, t_all *all)
 	int	i;
 
 	i = 0;
-	init_RGB(all);
+	init_rgb(all);
 	i++;
 	while (s[i] == ' ')
 		i++;

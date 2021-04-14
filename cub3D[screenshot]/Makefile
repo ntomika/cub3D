@@ -20,6 +20,7 @@ SRCS		= srcs/read_configs.c \
 				srcs/textures_keys.c \
 				srcs/check_map.c \
 				srcs/3d_img.c \
+				srcs/3d_img_2.c \
 				srcs/initbuf_textures.c \
 				srcs/key_press.c \
 				srcs/func_mlx.c \

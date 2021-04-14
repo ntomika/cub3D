@@ -6,6 +6,12 @@ int	w_and_h(t_all *all, int *i, char *s)
 	{
 		all->key.w = all->key.w * 10 + (s[*i] - '0');
 		*i += 1;
+		if (overflow(all->key.w) == 0)
+		{
+			while (s[*i] != ' ')
+				*i += 1;
+			break ;
+		}
 	}
 	while (s[*i] == ' ')
 		*i += 1;
@@ -13,6 +19,8 @@ int	w_and_h(t_all *all, int *i, char *s)
 	{
 		all->key.h = all->key.h * 10 + (s[*i] - '0');
 		*i += 1;
+		if (overflow(all->key.h) == 0)
+			break ;
 	}
 	if (all->key.w == 0 || all->key.h == 0)
 		return (0);
@@ -62,7 +70,7 @@ int	check_input_val(t_all *all)
 	return (1);
 }
 
-void	init_RGB(t_all *all)
+void	init_rgb(t_all *all)
 {
 	all->color.red = 0;
 	all->color.green = 0;

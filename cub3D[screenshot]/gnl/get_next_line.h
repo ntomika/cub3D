@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntomika <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ntomika <ntomika@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 00:42:02 by ntomika           #+#    #+#             */
-/*   Updated: 2021/03/22 16:56:47 by ntomika          ###   ########.fr       */
+/*   Updated: 2021/04/14 19:47:52 by ntomika          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ size_t		ft_strlen(const char *str);
 char		*ft_strdup(char *src);
 char		*ft_new(size_t n);
 char		*ft_strjoin(char const *s1, char const *s2);
+void		write_line(char **line, char *buf);
 
 #endif

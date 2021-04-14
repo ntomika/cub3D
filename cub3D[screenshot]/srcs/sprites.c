@@ -90,4 +90,6 @@ void	get_sprite(t_all *all)
 		lowest_highest_width(all);
 		loop_vertical_stripe(all, y, d, color);
 	}
+	free(all->spr.spriteOrder);
+	free(all->spr.spriteDistance);
 }

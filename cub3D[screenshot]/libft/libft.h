@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ntomika <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ntomika <ntomika@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 00:47:26 by ntomika           #+#    #+#             */
-/*   Updated: 2021/04/09 01:02:43 by ntomika          ###   ########.fr       */
+/*   Updated: 2021/04/14 16:59:10 by ntomika          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;

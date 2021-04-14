@@ -62,3 +62,18 @@ int	check_C(t_all *all)
 		return (0);
 	return (1);
 }
+
+int	overflow(long key)
+{
+	int	i;
+
+	i = 0;
+	while (key > 0)
+	{
+		key /= 10;
+		i++;
+	}
+	if (i > 8)
+		return (0);
+	return (1);
+}
