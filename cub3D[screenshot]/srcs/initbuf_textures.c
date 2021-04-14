@@ -8,7 +8,7 @@ void	load_image(t_all *all, int *texture, char *path)
 	all->img.img = mlx_xpm_file_to_image(all->img.mlx, path, &all->key.w2,
 			&all->key.h2);
 	if (!all->img.img)
-		return (0);
+		return ;
 	if (all->key.w2 > 64 || all->key.h2 > 64)
 	{
 		get_error("Textures error");
