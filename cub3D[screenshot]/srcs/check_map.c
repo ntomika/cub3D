@@ -64,7 +64,7 @@ int	valid_map(t_all *all)
 			j = 0;
 			while (all->map[i][j] == ' ')
 				j++;
-			if (all->map[i][j] != '1' &&
+			if (all->map[i][j] != '1' ||
 					all->map[i][ft_strlen(all->map[i]) - 1] != '1')
 				return (0);
 			while (all->map[i][++j] != '\0')
@@ -85,7 +85,6 @@ int	check_map(t_all *all, int *i)
 	k = 0;
 	while (*i < all->size)
 	{
-		j = -1;
 		all->map[k] = (char *)malloc(sizeof(char)
 				* (ft_strlen(all->conf[*i]) + 1));
 		if (!all->map[k])
@@ -93,6 +92,7 @@ int	check_map(t_all *all, int *i)
 			get_error("Failed to allocate memory");
 			return (0);
 		}
+		j = -1;
 		while (all->conf[*i][++j])
 			all->map[k][j] = all->conf[*i][j];
 		all->map[k++][j] = '\0';

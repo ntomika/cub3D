@@ -38,6 +38,7 @@ int	get_conf(char **argv, int argc, t_all *all)
 	int		fd;
 	char	*line;
 
+	check_argv(argv[1]);
 	if (argc == 2 || argc == 3)
 		fd = open(argv[1], O_RDONLY);
 	else

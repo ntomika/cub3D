@@ -11,9 +11,10 @@ void	my_mlx_pixel_put(t_all *all, int x, int y, long long color)
 
 int	quit(t_all *all)
 {
-	free(all->gr.bufer);
-	free(all->conf);
-	free(all->map);
+	get_free_map(all);
+	get_free_conf(all);
+	get_free_bufer(all);
+	get_free_textures(all);
 	free(all->spr.poz_sprite_x);
 	free(all->spr.poz_sprite_y);
 	free(all->gr.zBuffer);

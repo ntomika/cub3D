@@ -1,6 +1,8 @@
 NAME		= cub3D
 
-#CFLAGS		= -g -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror
+
+CC			= gcc
 
 MLX			= -framework OpenGL -framework AppKit
 
@@ -38,7 +40,7 @@ $(NAME):	$(OBJS)
 			@rm -rf cub3D
 			$(MAKE) -C ./libft
 			$(MAKE) -C ./mlx
-			gcc $(OBJS) -I.srcs/header.h $(CFLAGS) \
+			$(CC) $(OBJS) -I.srcs/header.h $(CFLAGS) \
 			$(MLX) $(LIB) -o $(NAME)
 
 all:		$(NAME)

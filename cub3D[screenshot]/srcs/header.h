@@ -10,8 +10,6 @@
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
 
-# define SCALE 1
-
 # define TEXTUREH 64
 # define TEXTUREW 64
 
@@ -179,6 +177,7 @@ int		quit(t_all *all);
 int		check_valid(t_all *all);
 void	identef_key(t_all *all);
 int		keys(t_all *all);
+int		check_argv(char *argv);
 
 int		valid_map(t_all *all);
 int		valid_start_end(t_all *all, int *i, int *j);
@@ -199,6 +198,7 @@ int		check_S(t_all *all);
 void	get_free_map(t_all *all);
 void	get_free_conf(t_all *all);
 void	get_free_bufer(t_all *all);
+void	get_free_textures(t_all *all);
 
 int		open_r_key(char *s, t_all *all);
 int		w_and_h(t_all *all, int *i, char *s);

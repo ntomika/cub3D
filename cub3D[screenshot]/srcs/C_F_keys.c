@@ -35,6 +35,12 @@ int	valid_color(t_all *all, int *i, char *s)
 	else
 		return (0);
 	all->color.blue = color_conversion(&s[*i], &all->color.blue);
+	if (s[*i] == '\0' || s[*i] == ' ')
+		return (0);
+	while (s[*i] >= '0' && s[*i] <= '9')
+		*i += 1;
+	if (s[*i] != '\0')
+		return (0);
 	return (1);
 }
 

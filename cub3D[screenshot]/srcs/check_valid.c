@@ -49,3 +49,32 @@ int	check_valid(t_all *all)
 	}
 	return (1);
 }
+
+int	check_argv(char *argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i] != '.')
+	{
+		if (argv[i] == '/')
+		{
+			get_error("Invalid argument name");
+			exit(0);
+		}
+		i++;
+	}
+	if (argv[i] == '.')
+		i++;
+	else
+	{
+		get_error("Invalid argument name");
+		exit(0);
+	}
+	if ((ft_memcmp("cub", &argv[i], 3)) != 0)
+	{
+		get_error("Invalid argument name");
+		exit(0);
+	}
+	return (1);
+}
