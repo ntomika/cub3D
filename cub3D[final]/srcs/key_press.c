@@ -30,20 +30,20 @@ void	key_a_and_d(t_all *all)
 {
 	if (all->keycap.k_a)
 	{
-		if (all->map[(int)(all->gr.posX - 0.5 - all->gr.planeX * MS)]
-				[(int)(all->gr.posY - 0.5)] != '1')
+		if (all->map[(int)(all->gr.posX - all->gr.planeX * MS)]
+				[(int)(all->gr.posY)] != '1')
 			all->gr.posX -= all->gr.planeX * MS;
-		if (all->map[(int)(all->gr.posX - 0.5)]
-				[(int)(all->gr.posY - 0.5 - all->gr.planeY * MS)] != '1')
+		if (all->map[(int)(all->gr.posX)]
+				[(int)(all->gr.posY - all->gr.planeY * MS)] != '1')
 			all->gr.posY -= all->gr.planeY * MS;
 	}
 	if (all->keycap.k_d)
 	{
-		if (all->map[(int)(all->gr.posX + 0.5 + all->gr.planeX * MS)]
-				[(int)(all->gr.posY + 0.5)] != '1')
+		if (all->map[(int)(all->gr.posX + all->gr.planeX * MS)]
+				[(int)(all->gr.posY)] != '1')
 			all->gr.posX += all->gr.planeX * MS;
-		if (all->map[(int)(all->gr.posX + 0.5)]
-				[(int)(all->gr.posY + 0.5 + all->gr.planeY * MS)] != '1')
+		if (all->map[(int)(all->gr.posX)]
+				[(int)(all->gr.posY + all->gr.planeY * MS)] != '1')
 			all->gr.posY += all->gr.planeY * MS;
 	}
 }
